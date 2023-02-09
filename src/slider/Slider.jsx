@@ -22,18 +22,14 @@ const Slider = () => {
     },
   ];
   const previous = () => {
-    //is the current index at the last in the array?
-    const currentIndexLast = currentIndex === data.length - 1;
-    // if yes go to index 0 in the array if false add 1 to the current index
-    const nextIndex = currentIndexLast ? 0 : currentIndex + 1;
-    setCurrentIndex(nextIndex);
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? data.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
   };
   const next = () => {
-    //is the current index at the first in the array?
-    const currentIndexZero = currentIndex === 0;
-    //if yes go to the last index in the array if false do current index - 1
-    const nextIndex = currentIndexZero ? data.length - 1 : currentIndex - 1;
-    setCurrentIndex(nextIndex);
+    const isLastSlider = currentIndex === data.length - 1;
+    const newIndex = isLastSlider ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
   };
   return (
     <div>
